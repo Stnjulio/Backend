@@ -3,6 +3,7 @@ import { Router } from "express";
 import personController from "../controllers/person";
 
 const router = Router();
+
 router.post('/create', personController.create);
 router.get('/list', personController.list);
 router.get('/detail/:id', personController.detail);

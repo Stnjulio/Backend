@@ -2,8 +2,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IAddress,  } from "../interfaces";
 
-
-
 export class AddressModel extends Model<IAddress, IAddress> implements IAddress {
    declare id: number;
    declare cep: string;
@@ -12,9 +10,8 @@ export class AddressModel extends Model<IAddress, IAddress> implements IAddress 
    declare bairro: string;
    declare localidade: string;
    declare uf: string;
- 
- 
 }
+
 export const init = async (sequelize: Sequelize) => {
     AddressModel.init({
         id: {
@@ -57,9 +54,4 @@ export const init = async (sequelize: Sequelize) => {
 
 )};
 
-// Associar o modelo User com outros modelos, se necessário
-export const associate = () => {
-  // Exemplo de associação: 
-  // UserModel.hasMany(OtherModel, { foreignKey: 'userId' });
-};
-
+export const associate = () => {};

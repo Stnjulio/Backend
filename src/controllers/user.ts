@@ -1,47 +1,49 @@
 // src/controllers/user.ts
-import { Request, Response } from "express";
-const create = async (req: Request, res?: Response, ) => {
+import { NextFunction, Request, Response } from "express";
+import userService from "../services/user";
+
+const create = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await userController.create(req.body);
-        res?.status(200).json(result);
+        const result = await userService.create(req.body);
+        res.status(200).json(result);
     } catch (error) {
-     
+        next(error);
     }
 }
 
-const list = async (req: Request, res?: Response, ) => {
+const list = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await userController.list(req.body);
-        res?.status(200).json(result);
+        const result = await userService.list(req.body);
+        res.status(200).json(result);
     } catch (error) {
-     
+        next(error);
     }
 }
 
-const detail = async (req: Request, res?: Response, ) => {
+const detail = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await userController.detail(req.body);
-        res?.status(200).json(result);
+        const result = await userService.detail(req.body);
+        res.status(200).json(result);
     } catch (error) {
-     
+        next(error);
     }
 }
 
-const update = async (req: Request, res?: Response, ) => {
+const update = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await userController.update(req.body);
-        res?.status(200).json(result);
+        const result = await userService.update(req.body);
+        res.status(200).json(result);
     } catch (error) {
-     
+        next(error);
     }
 }
 
-const remove = async (req: Request, res?: Response, ) => {
+const remove = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await userController.remove(req.body);
-        res?.status(200).json(result);
+        const result = await userService.remove(req.body);
+        res.status(200).json(result);
     } catch (error) {
-     
+        next(error);
     }
 }
 

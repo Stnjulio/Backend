@@ -5,8 +5,6 @@ import { activityRouter } from "./activity";
 import { userRouter } from "./user";
 import { authRouter } from "./auth";
 
-
-
 const router = Router();    
 
 router.use('/person', personRouter )

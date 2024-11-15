@@ -1,36 +1,26 @@
 // src/services/auth.ts
-import { UserModel } from '../models'; // Certifique-se de importar o modelo corretamente
+import { RegisterData } from '../interfaces';
+import { UserModel } from '../models'; 
 import bcrypt from 'bcryptjs';
 
-interface RegisterData {
-    name: string;
-    email: string;
-    password: string;
-}
-
 const login = async (data: any) => {
-    // Lógica de login
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+    return { message: "Login realizado com sucesso" }; 
 };
 
 const logout = async (data: any) => {
-    // Lógica de logout
-    return { message: "Logout realizado com sucesso" }; // Simulação de sucesso
+    return { message: "Logout realizado com sucesso" }; 
 };
 
 const register = async (data: RegisterData) => {
     const { name, email, password } = data;
 
-    // Verificar se o e-mail já existe
     const existingUser = await UserModel.findOne({ where: { email } });
     if (existingUser) {
         throw new Error('E-mail já cadastrado.');
     }
 
-    // Criptografar a senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Criar o novo usuário
     const newUser = await UserModel.create({
         name,
         email,
@@ -41,8 +31,7 @@ const register = async (data: RegisterData) => {
 };
 
 const verifyUser = async (data: any) => {
-    // Lógica para verificar o usuário
-    return { message: "Usuário verificado com sucesso" }; // Simulação de sucesso
+    return { message: "Usuário verificado com sucesso" }; 
 };
 
 const authService = {

@@ -1,5 +1,5 @@
 // src/interfaces/user.ts
-export interface IUserAttributes  {
+export interface IUser  {
     id: number
     name: string
     email: string

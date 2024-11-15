@@ -1,11 +1,8 @@
 // src/models/activity.ts
 import { DataTypes, Model, Sequelize } from "sequelize";
-import sequelize from "../config/db";
-import { IActivityAttributes } from "../interfaces";
+import { IActivity } from "../interfaces";
 
-
-
-export class ActivityModel extends Model<IActivityAttributes, IActivityAttributes> implements IActivityAttributes {
+export class ActivityModel extends Model<IActivity, IActivity> implements IActivity {
   declare id: number;
   declare name: string;
   declare description: string;
@@ -13,6 +10,7 @@ export class ActivityModel extends Model<IActivityAttributes, IActivityAttribute
   declare endDate: Date;
   declare createdAt: Date;
 }
+
 export const init = async (sequelize: Sequelize) => {
 ActivityModel.init(
   {
@@ -51,9 +49,4 @@ ActivityModel.init(
 
 )};
 
-// Associar o modelo User com outros modelos, se necessário
-export const associate = () => {
-  // Exemplo de associação: 
-  // UserModel.hasMany(OtherModel, { foreignKey: 'userId' });
-};
-
+export const associate = () => {};

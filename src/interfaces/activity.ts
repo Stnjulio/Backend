@@ -1,5 +1,5 @@
 // src/interfaces/activity.ts
-export interface IActivityAttributes {
+export interface IActivity {
     id: number;
     name: string;
     description: string;

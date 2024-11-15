@@ -1,22 +1,15 @@
 // src/models/user.ts
 import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
-import { IUserAttributes } from '../interfaces/user';
+import { IUser } from '../interfaces/user';
 
-// Definir o modelo User
-export default class UserModel extends Model<IUserAttributes, Optional<IUserAttributes, 'id'>> implements IUserAttributes {
+export default class UserModel extends Model<IUser, Optional<IUser, 'id'>> implements IUser {
   public id!: number;
   public name!: string;
   public email!: string;
   public password!: string;
-
-  // Método para realizar associações com outras models, se necessário
-  static associate(models: any) {
-    // Exemplo de associação:
-    // UserModel.hasMany(models.Task, { foreignKey: 'userId' });
-  }
+  static associate: any;
 }
 
-// Inicializa o modelo User
 export const init = async (sequelize: Sequelize) => {
   UserModel.init(
     {
@@ -40,9 +33,11 @@ export const init = async (sequelize: Sequelize) => {
       },
     },
     {
-      sequelize,           // A instância do Sequelize
-      modelName: 'user',   // O nome do modelo
-      timestamps: false,    // Desabilita os campos createdAt, updatedAt
+      sequelize,    
+      modelName: 'user',
+      timestamps: false,
     }
   );
 };
+
+export const associate = () => {};
