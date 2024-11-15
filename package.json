@@ -3,17 +3,45 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "start": "ts-node src/index.ts"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.ts",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "sequelize": "sequelize",
+    "db:create": "sequelize-cli db:create",
+    "db:drop": "sequelize-cli db:drop",
+    "db:migrate": "node migrations/run-sql-migrations.js",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo",
+    "db:migrate:undo:all": "sequelize-cli db:migrate:undo:all",
+    "db:seed": "sequelize-cli db:seed:all",
+    "db:seed:undo": "sequelize-cli db:seed:undo",
+    "db:reset": "node scripts/reset-sql-db.js",
+    "db": "node migrations/create-sql-migration.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.9.0",
+    "bcryptjs": "^2.4.3",
+    "cls-hooked": "^4.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.4",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cls-hooked": "^4.3.9",
+    "@types/express": "^5.0.0",
+    "@types/sequelize": "^4.28.20",
+    "eslint": "^9.14.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "sequelize-cli": "^6.6.2",
+    "ts-node": "^10.9.2"
   }
 }
