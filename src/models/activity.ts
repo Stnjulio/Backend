@@ -1,6 +1,7 @@
 // src/models/activity.ts
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IActivity } from "../interfaces";
+import { PersonModel } from "./person";
 
 export class ActivityModel extends Model<IActivity, IActivity> implements IActivity {
   declare id: number;
@@ -49,4 +50,10 @@ ActivityModel.init(
 
 )};
 
-export const associate = () => {};
+export const associate = () => {
+  ActivityModel.belongsToMany(PersonModel, {
+    through: "PersonActivity",
+    as: "people",
+    foreignKey: "activityId",
+  });
+};

@@ -1,8 +1,11 @@
-
 import { Sequelize } from 'sequelize';
-import clsService from '../services/cls'; 
-import UserModel, { init as initUserModel } from './user'; 
-
+import clsService from '../services/cls';
+import { init as initUserModel, UserModel } from './user';
+import { init as initActivityModel, ActivityModel } from './activity';
+import { init as initAddressModel, AddressModel } from './address';
+import { init as initPersonModel, PersonModel } from './person';
+import { init as initPersonActivityModel, PersonActivityModel } from './person_activity';
+import { init as initPersonAddressModel, PersonAddressModel } from './person_address';
 
 const namespace = clsService.getNamespace();
 Sequelize.useCLS(namespace);
@@ -20,11 +23,28 @@ const sequelize = new Sequelize({
 });
 
 (async () => {
-  await initUserModel(sequelize); 
-  
-  if (UserModel.associate) {
-    UserModel.associate(sequelize.models); 
-  }
+  await initUserModel(sequelize);
+  await initActivityModel(sequelize);
+  await initAddressModel(sequelize);
+  await initPersonModel(sequelize);
+  await initPersonActivityModel(sequelize);
+  await initPersonAddressModel(sequelize);
+
+  // Configurar associações
+  Object.values(sequelize.models).forEach((model: any) => {
+    if (model.associate) {
+      model.associate(sequelize.models);
+    }
+  });
 })();
 
-export { sequelize, Sequelize, UserModel };
+export {
+  sequelize,
+  Sequelize,
+  UserModel,
+  ActivityModel,
+  AddressModel,
+  PersonModel,
+  PersonActivityModel,
+  PersonAddressModel,
+};

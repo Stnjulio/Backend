@@ -1,4 +1,4 @@
--- Write your SQL query here
+/* Migração 3 */
 CREATE TABLE IF NOT EXISTS address (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cep VARCHAR(255) NOT NULL,

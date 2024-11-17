@@ -1,4 +1,4 @@
--- Write your SQL query here
+/* Migração 4 */
 CREATE TABLE IF NOT EXISTS activity (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,

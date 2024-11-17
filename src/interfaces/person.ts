@@ -5,6 +5,7 @@ export interface IPerson {
   nome: string;
   telefone: string;
   email: string;    
-  endereco: IAddress; 
+  endereco: IAddress;
+  userId: number;
 };
 

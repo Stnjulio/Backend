@@ -1,6 +1,7 @@
 // src/models/address.ts
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IAddress,  } from "../interfaces";
+import { PersonModel } from "./person";
 
 export class AddressModel extends Model<IAddress, IAddress> implements IAddress {
    declare id: number;
@@ -54,4 +55,10 @@ export const init = async (sequelize: Sequelize) => {
 
 )};
 
-export const associate = () => {};
+export const associate = () => {
+    AddressModel.belongsToMany(PersonModel, {
+      through: "PersonAddress",
+      as: "people",
+      foreignKey: "addressId",
+    });
+  };

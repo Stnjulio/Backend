@@ -1,12 +1,14 @@
 // src/models/user.ts
 import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
 import { IUser } from '../interfaces/user';
+import { PersonModel } from './person';
 
-export default class UserModel extends Model<IUser, Optional<IUser, 'id'>> implements IUser {
-  public id!: number;
-  public name!: string;
-  public email!: string;
-  public password!: string;
+export class UserModel extends Model<IUser, IUser> implements IUser {
+  declare id: number;
+  declare name: string;
+  declare email: string;
+  declare password: string;
+  declare personId: number;
   static associate: any;
 }
 
@@ -31,6 +33,10 @@ export const init = async (sequelize: Sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      personId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
     },
     {
       sequelize,    
@@ -40,4 +46,9 @@ export const init = async (sequelize: Sequelize) => {
   );
 };
 
-export const associate = () => {};
+export const associate = () => {
+  UserModel.hasOne(PersonModel, {
+    foreignKey: "userId",
+    as: "person",
+  });
+};
