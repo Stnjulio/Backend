@@ -5,7 +5,8 @@ import { ActivityModel } from "./activity";
 import { AddressModel } from "./address";
 import { UserModel } from "./user";
 
-export class PersonModel extends Model<IPerson, IPerson> implements IPerson {
+export class PersonModel extends Model<IPerson, Omit<IPerson, 'id'>> implements IPerson {
+    declare id: string;
     declare nome: string;
     declare telefone: string;
     declare email: string;
@@ -16,6 +17,11 @@ export class PersonModel extends Model<IPerson, IPerson> implements IPerson {
 export const init = async (sequelize: Sequelize) => {
 PersonModel.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
     nome: {
       type: DataTypes.STRING,
       allowNull: false,

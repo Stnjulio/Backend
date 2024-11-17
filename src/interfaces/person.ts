@@ -2,6 +2,7 @@
 import { IAddress } from "./address";
 
 export interface IPerson {
+  id: string
   nome: string;
   telefone: string;
   email: string;    

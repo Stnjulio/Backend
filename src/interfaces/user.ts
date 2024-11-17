@@ -1,8 +1,8 @@
 // src/interfaces/user.ts
 export interface IUser  {
-    id: number
+    id: string
     name: string
     email: string
     password: string
-    personId: number
+    personId: string
   }

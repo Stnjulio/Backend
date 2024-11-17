@@ -40,7 +40,8 @@ const update = async (req: Request, res: Response, next: NextFunction ) => {
 
 const remove = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await activityService.remove(req.body);
+        const { id } = req.params;
+        const result = await activityService.remove(id as string);
         res.status(200).json(result);
     } catch (error) {
         next(error);

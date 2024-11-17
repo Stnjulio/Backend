@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS activity (
     description TEXT NOT NULL,
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
-    createdAt DATE 
+    createdAt DATE,
+    updatedAt DATE
 );

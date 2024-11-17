@@ -1,6 +1,6 @@
 // src/interfaces/address.ts
 export interface IAddress {
-    id: number;
+    id: string;
     cep: string;
     logradouro: string;
     complemento: string;

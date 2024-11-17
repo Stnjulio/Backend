@@ -1,9 +1,8 @@
 // src/interfaces/activity.ts
 export interface IActivity {
-    id: number;
+    id: string;
     name: string;
     description: string;
-    startDate: Date;
-    endDate: Date;
-    createdAt: Date;
+    startDate: Date | string;
+    endDate: Date | string;
   }

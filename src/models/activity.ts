@@ -3,13 +3,14 @@ import { DataTypes, Model, Sequelize } from "sequelize";
 import { IActivity } from "../interfaces";
 import { PersonModel } from "./person";
 
-export class ActivityModel extends Model<IActivity, IActivity> implements IActivity {
-  declare id: number;
+export class ActivityModel extends Model<IActivity,  Omit<IActivity, 'id' | 'createdAt' | 'updatedAt'>> implements IActivity {
+  declare id: string;
   declare name: string;
   declare description: string;
   declare startDate: Date;
   declare endDate: Date;
   declare createdAt: Date;
+  declare updatedAt: Date;
 }
 
 export const init = async (sequelize: Sequelize) => {
@@ -36,16 +37,11 @@ ActivityModel.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      allowNull: false,
-    },
   },
   {
     sequelize,
     modelName: "activity",
-    timestamps: false,
+    timestamps: true,
   }
 
 )};

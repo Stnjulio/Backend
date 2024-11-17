@@ -3,8 +3,8 @@ import { DataTypes, Model, Sequelize } from "sequelize";
 import { IAddress,  } from "../interfaces";
 import { PersonModel } from "./person";
 
-export class AddressModel extends Model<IAddress, IAddress> implements IAddress {
-   declare id: number;
+export class AddressModel extends Model<IAddress, Omit<IAddress, 'id'>> implements IAddress {
+   declare id: string;
    declare cep: string;
    declare logradouro: string;
    declare complemento: string;
@@ -50,7 +50,7 @@ export const init = async (sequelize: Sequelize) => {
   {
     sequelize,
     modelName: "Adress",
-    timestamps: false,
+    timestamps: true,
   }
 
 )};
