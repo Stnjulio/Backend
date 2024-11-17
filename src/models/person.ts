@@ -2,7 +2,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IAddress, IPerson } from "../interfaces";
 import { ActivityModel } from "./activity";
-import { AddressModel } from "./address";
 import { UserModel } from "./user";
 
 export class PersonModel extends Model<IPerson, Omit<IPerson, 'id'>> implements IPerson {
@@ -11,7 +10,7 @@ export class PersonModel extends Model<IPerson, Omit<IPerson, 'id'>> implements 
     declare telefone: string;
     declare email: string;
     declare endereco: IAddress;
-    declare userId: number;
+    declare userId?: string;
 }
 
 export const init = async (sequelize: Sequelize) => {
@@ -52,23 +51,16 @@ PersonModel.init(
 )};
 
 export const associate = () => {
-  // N:N com ActivityModel
+  PersonModel.belongsTo(UserModel, {
+    foreignKey: "userId",
+    as: "user",
+    onDelete: "SET NULL",
+    onUpdate: "CASCADE",
+  });
+
   PersonModel.belongsToMany(ActivityModel, {
     through: "PersonActivity",
     as: "activities",
     foreignKey: "personId",
-  });
-
-  // N:N com AddressModel
-  PersonModel.belongsToMany(AddressModel, {
-    through: "PersonAddress",
-    as: "addresses",
-    foreignKey: "personId",
-  });
-
-  // 1:1 com UserModel
-  PersonModel.belongsTo(UserModel, {
-    foreignKey: "userId",
-    as: "user",
   });
 };

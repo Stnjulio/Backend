@@ -9,10 +9,6 @@ const logout = async (data: any) => {
     return { message: "Logout realizado com sucesso" }; 
 };
 
-const register = async (data: RegisterData) => {
-    return { message: "Usuário cadastrado com sucesso" };
-};
-
 const verifyUser = async (data: any) => {
     return { message: "Usuário verificado com sucesso" }; 
 };
@@ -20,7 +16,6 @@ const verifyUser = async (data: any) => {
 const authService = {
     login,
     logout,
-    register,
     verifyUser
 };
 

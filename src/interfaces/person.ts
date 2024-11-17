@@ -7,6 +7,6 @@ export interface IPerson {
   telefone: string;
   email: string;    
   endereco: IAddress;
-  userId: number;
+  userId?: string;
 };
 

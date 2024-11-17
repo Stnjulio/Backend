@@ -1,6 +1,4 @@
--- Write your SQL query here
-
-/* Adicionar relacionamento: user -> person */
+/* Migração 7 */
 ALTER TABLE user
     ADD COLUMN personId INT DEFAULT NULL;
 

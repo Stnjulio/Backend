@@ -1,6 +1,4 @@
--- Write your SQL query here
-
-/* Criar tabela de junção: person <-> activity */
+/* Migração 9 */
 CREATE TABLE IF NOT EXISTS PersonActivity (
     personId INT NOT NULL,
     activityId INT NOT NULL,

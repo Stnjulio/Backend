@@ -1,3 +1,3 @@
-/* Adicionar relacionamento: person -> user */
+/* Migração 5 */
 ALTER TABLE person
     ADD COLUMN userId INT DEFAULT NULL;

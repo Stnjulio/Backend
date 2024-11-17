@@ -1,5 +1,4 @@
--- Write your SQL query here
-/* Criar tabela de junção: person <-> address */
+/* Migração 10 */
 CREATE TABLE IF NOT EXISTS PersonAddress (
     personId INT NOT NULL,
     addressId INT NOT NULL,
