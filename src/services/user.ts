@@ -26,16 +26,52 @@ const create = async (data: any) => {
     return { message: "Usuário criado com sucesso", user };
 };
 
-const list = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const list = async () => {
+    const users = await UserModel.findAll();
+    return { message: "Lista de usuários", users };
 };
 
-const detail = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const detail = async (id: string) => {
+    if (!id) {
+        throw new Error("ID não informado");
+    }
+
+    const user = await UserModel.findByPk(id);
+
+    if (!user) {
+        throw new Error("Usuário não encontrado");
+    }
+
+    return { message: "Detalhes do usuário", user };
 };
 
-const update = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const update = async (id: string, data: any) => {
+    if (!id) {
+        throw new Error("ID não informado");
+    }
+
+    const user = await UserModel.findByPk(id);
+    if (!user) {
+        throw new Error("Usuário não encontrado");
+    }
+
+    const {name, email, password } = data;
+
+    if (name) {
+        user.name = name;
+    }
+
+    if (email) {
+        user.email = email;
+    }
+
+    if (password) {
+        user.password = password;
+    }
+
+    await user.save();
+
+    return { message: "Usuário atualizado com sucesso", user };
 };
 
 const remove = async (id: string) => {

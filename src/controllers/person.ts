@@ -13,7 +13,7 @@ const create = async (req: Request, res: Response, next: NextFunction ) => {
 
 const list = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await personService.list(req.body);
+        const result = await personService.list();
         res.status(200).json(result);
     } catch (error) {
         next(error);
@@ -22,7 +22,8 @@ const list = async (req: Request, res: Response, next: NextFunction ) => {
 
 const detail = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await personService.detail(req.body);
+        const { id } = req.params;
+        const result = await personService.detail(id as string);
         res.status(200).json(result);
     } catch (error) {
         next(error);
@@ -31,7 +32,8 @@ const detail = async (req: Request, res: Response, next: NextFunction ) => {
 
 const update = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await personService.update(req.body);
+        const { id } = req.params;
+        const result = await personService.update(id as string, req.body);
         res.status(200).json(result);
     } catch (error) {
         next(error);
@@ -40,7 +42,8 @@ const update = async (req: Request, res: Response, next: NextFunction ) => {
 
 const remove = async (req: Request, res: Response, next: NextFunction ) => {
     try {
-        const result = await personService.remove(req.body);
+        const { id } = req.params;
+        const result = await personService.remove(id as string);
         res.status(200).json(result);
     } catch (error) {
         next(error);

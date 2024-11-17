@@ -3,6 +3,7 @@ import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
 import { IUser } from '../interfaces/user';
 import { PersonModel } from './person';
 
+
 export class UserModel extends Model<IUser, Omit<IUser, 'id'>> implements IUser {
   declare id: string;
   declare name: string;
@@ -10,6 +11,10 @@ export class UserModel extends Model<IUser, Omit<IUser, 'id'>> implements IUser 
   declare password: string;
   declare personId: string;
   static associate: any;
+
+  checkPassword(user_password: string) {
+    return this.password === user_password
+  }
 }
 
 export const init = async (sequelize: Sequelize) => {

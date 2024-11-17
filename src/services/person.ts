@@ -19,20 +19,71 @@ const create = async (data: IPerson) => {
     return { message: "Pessoa criada com sucesso", person };
 };
 
-const list = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const list = async () => {
+    const people = await PersonModel.findAll();
+    return { message: "Lista de pessoas", people };
 };
 
-const detail = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const detail = async (id: string) => {
+    if (!id) {
+        throw new Error("ID não informado");
+    }
+
+    const person = await PersonModel.findByPk(id);
+
+    if (!person) {
+        throw new Error("Pessoa não encontrada");
+    }
+
+    return { message: "Detalhes da pessoa", person };
 };
 
-const update = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const update = async (id: string, data: any) => {
+    if (!id) {
+        throw new Error("ID não informado");
+    }
+
+    const person = await PersonModel.findByPk(id);
+
+    if (!person) {
+        throw new Error("Pessoa não encontrada");
+    }
+
+    if (data.nome) {
+        person.nome = data.nome;
+    }
+
+    if (data.telefone) {
+        person.telefone = data.telefone;
+    }
+
+    if (data.email) {
+        person.email = data.email;
+    }
+
+    if (data.endereco) {
+        person.endereco = data.endereco;
+    }
+
+    await person.save();
+
+    return { message: "Pessoa atualizada com sucesso", person };
 };
 
-const remove = async (data: any) => {
-    return { message: "Login realizado com sucesso" }; // Simulação de sucesso
+const remove = async (id: string) => {
+    if (!id) {
+        throw new Error("ID não informado");
+    }
+
+    const person = await PersonModel.findByPk(id);
+
+    if (!person) {
+        throw new Error("Pessoa não encontrada");
+    }
+
+    await person.destroy();
+
+    return { message: "Pessoa removida com sucesso" };
 };
 
 const personService = {
