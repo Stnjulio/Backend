@@ -1,8 +1,10 @@
 // src/services/user.ts
+import { IPerson, IUser } from "../interfaces";
+import { Register } from "../interfaces/register";
 import { PersonModel } from "../models";
 import { UserModel } from "../models/user";
 
-const create = async (data: any) => {
+const create = async (data: Register) => {
     const {nome, telefone, email, endereco, name, password } = data;
     
     if (!nome || !telefone || !email || !endereco || !name || !password) {
