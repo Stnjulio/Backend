@@ -26,7 +26,6 @@ const sequelize = new Sequelize({
   await initPersonModel(sequelize);
   await initPersonActivityModel(sequelize);
 
-  // Configurar associações
   Object.values(sequelize.models).forEach((model: any) => {
     if (model.associate) {
       model.associate(sequelize.models);

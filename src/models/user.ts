@@ -3,7 +3,6 @@ import { Sequelize, DataTypes, Model, Optional } from 'sequelize';
 import { IUser } from '../interfaces/user';
 import { PersonModel } from './person';
 
-
 export class UserModel extends Model<IUser, Omit<IUser, 'id'>> implements IUser {
   declare id: string;
   declare name: string;

@@ -58,5 +58,4 @@ const activityController = {
     remove
 };
 
-
 export default activityController

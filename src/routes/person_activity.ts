@@ -2,8 +2,6 @@ import { Router } from "express";
 import person_activityController from "../controllers/person_activity";
 import { authenticated } from "../middlewares/authenticated";
 
-
-
 const router = Router();
 
 router.post('/create', authenticated, person_activityController.create);

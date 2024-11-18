@@ -6,7 +6,6 @@ import { userRouter } from "./user";
 import { authRouter } from "./auth";
 import { person_activityRouter } from "./person_activity";
 
-
 const router = Router();    
 
 router.use('/person', personRouter )

@@ -2,8 +2,6 @@ import { Router } from "express";
 import personController from "../controllers/person";
 import { authenticated } from "../middlewares/authenticated";
 
-
-
 const router = Router();
 
 router.post('/create', authenticated, personController.create);

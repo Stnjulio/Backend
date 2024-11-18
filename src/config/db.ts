@@ -11,8 +11,8 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD as string,
   {
     host: process.env.DB_HOST,
-    dialect: 'mysql', // Ou 'postgres', 'sqlite', etc., dependendo do seu banco
-    logging: false, // Mude para true para exibir logs SQL no console
+    dialect: 'mysql',
+    logging: false,
   }
 )
 

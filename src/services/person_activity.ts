@@ -1,5 +1,5 @@
 // src/services/person_activity.ts
-import { IPersonActivity } from "../interfaces/person_activity";
+import { IPersonActivity } from "../interfaces";
 import { PersonActivityModel } from "../models";
 
 const create = async (data: IPersonActivity) => {
