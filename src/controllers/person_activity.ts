@@ -20,26 +20,6 @@ const list = async (req: Request, res: Response, next: NextFunction ) => {
     }
 }
 
-const detail = async (req: Request, res: Response, next: NextFunction ) => {
-    try {
-        const { id } = req.params;
-        const result = await person_activityService.detail(id as string);
-        res.status(200).json(result);
-    } catch (error) {
-        next(error);
-    }
-}
-
-const update = async (req: Request, res: Response, next: NextFunction ) => {
-    try {
-        const { id } = req.params;
-        const result = await person_activityService.update(id as string, req.body);
-        res.status(200).json(result);
-    } catch (error) {
-        next(error);
-    }
-}
-
 const remove = async (req: Request, res: Response, next: NextFunction ) => {
     try {
         const { id } = req.params;
@@ -53,8 +33,6 @@ const remove = async (req: Request, res: Response, next: NextFunction ) => {
 const person_activityController = {
     create,
     list,
-    detail,
-    update,
     remove
     
 };

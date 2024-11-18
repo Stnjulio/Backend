@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { ILogin } from "../interfaces/auth";  // Importa a interface do payload do JWT
+import { backend } from "../config/environment";
 
 
 declare module "express" {
@@ -17,7 +18,7 @@ export const authenticated = (req: Request, res: Response, next: NextFunction): 
   }
 
   try {
-    const decoded = verify(token, process.env.JWT_SECRET || "u8IopWs4JdPhOMkrU5CUJkGaUcb0Y0rHkkogEbUF" ) as ILogin;
+    const decoded = verify(token, backend.jwt_secret ) as ILogin;
     req.user = decoded;  // Associa o 'user' à requisição
     next();  // Continua para o próximo middleware
   } catch (error) {

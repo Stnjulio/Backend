@@ -1,7 +1,7 @@
+// src/services/person_activity.ts
 import { IPersonActivity } from "../interfaces/person_activity";
 import { PersonActivityModel } from "../models";
 
-// src/services/person_activity.ts
 const create = async (data: IPersonActivity) => {
     const { personId, activityId } = data;
 
@@ -23,36 +23,6 @@ const list = async () => {
     return { message: "Lista de pessoas", personActivities };
 };
 
-const detail = async (id: string) => {
-    if (!id) {
-        throw new Error("ID não informado");
-    }
-
-    const personActivity = await PersonActivityModel.findByPk(id);
-
-    if (!personActivity) {
-        throw new Error("Pessoa não encontrada");
-    }
-
-    return { message: "Detalhes da pessoa", personActivity };
-};
-
-const update = async (id: string, data: any) => {
-    if (!id) {
-        throw new Error("ID não informado");
-    }
-
-    const personActivity = await PersonActivityModel.findByPk(id);
-
-    if (!personActivity) {
-        throw new Error("Pessoa não encontrada");
-    }
-
-    await personActivity.update(data);
-
-    return { message: "Pessoa atualizada com sucesso" };
-};
-
 const remove = async (id: string) => {
     if (!id) {
         throw new Error("ID não informado");
@@ -72,8 +42,6 @@ const remove = async (id: string) => {
 const person_activityService = {
     create,
     list,
-    detail,
-    update,
     remove      
 };
 

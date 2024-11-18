@@ -1,7 +1,7 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IPersonActivity } from "../interfaces/person_activity";
 
-export class PersonActivityModel extends Model <IPersonActivity, Omit<IPersonActivity, "id">> implements IPersonActivity{
+export class PersonActivityModel extends Model <IPersonActivity, Omit<IPersonActivity, 'id'>> implements IPersonActivity{
   declare id: string;
   declare personId: string;
   declare activityId: string;

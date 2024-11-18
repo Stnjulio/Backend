@@ -1,4 +1,4 @@
-/* Migração 9 */
+/* Migração 8 */
 CREATE TABLE IF NOT EXISTS PersonActivity (
     id INT AUTO_INCREMENT PRIMARY KEY,
     personId INT NOT NULL,

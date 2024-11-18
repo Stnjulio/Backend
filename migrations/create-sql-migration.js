@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 });
 
 // Função para pedir o nome do arquivo ao usuário
-rl.question('What will this script do? ', (filename) => {
+rl.question('Enter the name of the migration file: ', (filename) => {
   // Substituir espaços por pontos, como no script bash
   const formattedFilename = filename.replace(/ /g, '.');
 
