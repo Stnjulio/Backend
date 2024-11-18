@@ -20,35 +20,23 @@ const login = async ({ email, password }: RegisterData) => {
         throw new Error("Usu rio ou senha incorretos");
     }
 
-    return { message: "Login realizado com sucesso", user }; 
+    const accessToken = sign(user.toJSON(), backend.jwt_secret, { expiresIn: '10h' });
+    const refreshToken = sign(user.toJSON(), backend.jwt_secret, { expiresIn: '7d' });
+
+    return { message: "Login realizado com sucesso", accessToken, refreshToken }; 
 };
 
 const logout = async () => {
     return { message: "Logout realizado com sucesso" }; 
 };
 
-const clarify = (token?: string): ILogin => {
-  if (!token) throw { message: `auth.error.missing_token`, status: 401 };
 
-  if (token.match(/^[B|b]earer /g)) {
-    token = token.replace(/[B|b]earer /g, '');
-
-    try {
-      return verify(token, process.env.JWT_SECRET || 'your-secret-key') as ILogin;
-    } catch (error) {
-      throw { message: `auth.error.invalid`, error, status: 401 };
-    }
-  }
-
-  throw { message: `auth.error.invalid_token_type` };
-}
-  
    
 
 const authService = {
     login,
     logout,
-    clarify
+    
 };
 
 export default authService;

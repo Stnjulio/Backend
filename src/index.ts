@@ -8,9 +8,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(authenticated);
 
 app.use(router);
+
+router.use(authenticated);
 
 sequelize
   .authenticate()
