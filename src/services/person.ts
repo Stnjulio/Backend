@@ -1,7 +1,7 @@
+// src/services/person.ts
 import { IPerson } from "../interfaces";
 import { PersonModel } from "../models";
 
-// src/services/person.ts
 const create = async (data: IPerson) => {
     const { nome, telefone, email, endereco } = data;
 

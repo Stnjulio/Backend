@@ -1,0 +1,58 @@
+1. Atividade (activityService)
+Criar Atividade (POST /activities/create)
+
+    Exemplo 1
+
+        {
+            "name": "Workshop de Inovação",
+            "description": "Evento para explorar novas ideias e metodologias de trabalho.",
+            "startDate": "2024-11-10",
+            "endDate": "2024-11-12"
+        }
+
+    Exemplo 2
+
+        {
+            "name": "Treinamento em Segurança",
+            "description": "Sessão de treinamento sobre práticas de segurança no ambiente de trabalho.",
+            "startDate": "2024-10-20",
+            "endDate": "2024-10-22"
+        }
+
+    Exemplo 3
+
+        {
+            "name": "Revisão de Metas Anuais",
+            "description": "Reunião para revisar e ajustar as metas estabelecidas no início do ano.",
+            "startDate": "2024-12-15",
+            "endDate": "2024-12-16"
+        }
+
+
+Atualizar Atividade (PUT /activities/update/:id)
+    Exemplo 1
+
+        {
+            "name": "Workshop de Inovação Atualizado",
+            "description": "Descrição atualizada do evento para explorar novas ideias.",
+            "startDate": "2024-11-11",
+            "endDate": "2024-11-13"
+        }
+
+    Exemplo 2
+
+        {
+            "name": "Treinamento em Segurança Atualizado",
+            "description": "Sessão atualizada com novos tópicos sobre segurança no trabalho.",
+            "startDate": "2024-10-21",
+            "endDate": "2024-10-23"
+        }
+
+    Exemplo 3
+
+        {
+            "name": "Revisão de Metas Anuais Atualizada",
+            "description": "Reunião revisada para ajustar metas conforme novos resultados.",
+            "startDate": "2024-12-16",
+            "endDate": "2024-12-17"
+        }

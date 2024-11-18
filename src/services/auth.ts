@@ -1,15 +1,15 @@
 // src/services/auth.ts
 import { backend } from '../config/environment';
-import { RegisterData } from '../interfaces';
 import { ILogin } from '../interfaces/auth';
 import { UserModel } from '../models';
-import { sign, verify } from 'jsonwebtoken'
+import { sign } from 'jsonwebtoken'
 
-const login = async ({ email, password }: RegisterData) => {
+const login = async (data: ILogin) => {
+    const { email, password } = data;
     const user = await UserModel.findOne({ where: { email } });
 
     if (!user) {
-        throw new Error("Usu rio ou senha incorretos");
+        throw new Error("Usuário ou senha incorretos");
     }
 
     const user_password: string = password
@@ -17,7 +17,7 @@ const login = async ({ email, password }: RegisterData) => {
     const isValidPassword = await user.checkPassword(user_password);
 
     if (!isValidPassword) {
-        throw new Error("Usu rio ou senha incorretos");
+        throw new Error("Usuário ou senha incorretos");
     }
 
     const accessToken = sign(user.toJSON(), backend.jwt_secret, { expiresIn: '10h' });

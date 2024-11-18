@@ -1,0 +1,82 @@
+5. Usuário (userService)
+Criar Usuário (POST /users/create)
+
+    Exemplo 1
+
+        {
+            "nome": "Carlos Lima",
+            "telefone": "123456789",
+            "email": "carlos.lima@example.com",
+            "endereco": {
+                "cep": "12345-678",
+                "logradouro": "Rua das Flores",
+                "complemento": "Apartamento 301",
+                "bairro": "Jardim América",
+                "localidade": "São Paulo",
+                "uf": "SP"
+            },
+            "name": "carloslima",
+            "password": "seguranca123"
+        }
+
+    Exemplo 2
+
+        {
+            "nome": "Ana Pereira",
+            "telefone": "987654321",
+            "email": "ana.pereira@example.com",
+            "endereco": {
+                "cep": "65432-789",
+                "logradouro": "Avenida Central",
+                "complemento": "Casa 10",
+                "bairro": "Centro",
+                "localidade": "Rio de Janeiro",
+                "uf": "RJ"
+            },
+            "name": "anapereira",
+            "password": "minhasenha456"
+        }
+
+    Exemplo 3
+
+        {
+            "nome": "Roberto Santos",
+            "telefone": "998877665",
+            "email": "roberto.santos@example.com",
+            "endereco": {
+                "cep": "98765-432",
+                "logradouro": "Travessa das Palmeiras",
+                "complemento": "Casa Térrea",
+                "bairro": "Vila Rica",
+                "localidade": "Salvador",
+                "uf": "BA"
+            },
+            "name": "robertosantos",
+            "password": "senha78910"
+        }
+
+Atualizar Usuário (PUT /users/update/:id)
+
+    Exemplo 1
+
+        {
+            "name": "carloslima_atualizado",
+            "email": "carlos.atualizado@example.com",
+            "password": "novaSenhaSegura123"
+        }
+
+    Exemplo 2
+
+        {
+            "name": "anapereira_nova",
+            "email": "ana.pereira.nova@example.com",
+            "password": "senhaReforcada456"
+        }
+
+    Exemplo 3
+
+        {
+            "name": "robertosantos_modificado",
+            "email": "roberto.novoemail@example.com",
+            "password": "senhaNova789"
+        }

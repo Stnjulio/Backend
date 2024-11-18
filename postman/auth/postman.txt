@@ -1,0 +1,23 @@
+2. Autenticação (authService)
+Login (POST /auth/login)
+
+    Exemplo 1
+
+        {
+            "email": "carlos.lima@example.com",
+            "password": "seguranca123"
+        }
+
+    Exemplo 2
+
+        {
+            "email": "ana.pereira@example.com",
+            "password": "minhasenha456"
+        }
+
+    Exemplo 3
+
+        {
+            "email": "roberto.santos@example.com",
+            "password": "senha78910"
+        }

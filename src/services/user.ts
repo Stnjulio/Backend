@@ -1,7 +1,7 @@
+// src/services/user.ts
 import { PersonModel } from "../models";
 import { UserModel } from "../models/user";
 
-// src/services/user.ts
 const create = async (data: any) => {
     const {nome, telefone, email, endereco, name, password } = data;
     

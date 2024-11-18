@@ -1,0 +1,61 @@
+3. Pessoa-Atividade (person_activityService)
+Criar Relação Pessoa-Atividade (POST /person-activity/create)
+
+    exemplo 1
+
+        {
+            "personId": "1",
+            "activityId": "1"
+        }
+
+    exemplo 2
+
+        {
+            "personId": "2",
+            "activityId": "1"
+        }
+    
+    exemplo 3
+
+        {
+            "personId": "3",
+            "activityId": "1"
+        }
+
+Atualizar Relação Pessoa-Atividade (POST /person-activity/create)
+
+exemplo 1
+
+        {
+            "personId": "1",
+            "activityId": "2"
+        }
+
+        {
+            "personId": "1",
+            "activityId": "3"
+        }
+
+    exemplo 2
+
+        {
+            "personId": "2",
+            "activityId": "2"
+        }
+
+        {
+            "personId": "2",
+            "activityId": "3"
+        }
+    
+    exemplo 3
+
+        {
+            "personId": "3",
+            "activityId": "2"
+        }
+
+        {
+            "personId": "3",
+            "activityId": "3"
+        }

@@ -1,0 +1,101 @@
+4. Pessoa (personService)
+Criar Pessoa (POST /people/create)
+
+    Exemplo 1
+
+        {
+            "nome": "Ana Oliveira",
+            "telefone": "987654321",
+            "email": "ana.oliveira@example.com",
+            "endereco": {
+                "cep": "98765-432",
+                "logradouro": "Avenida Brasil",
+                "complemento": "Casa 20",
+                "bairro": "Jardim América",
+                "localidade": "Rio de Janeiro",
+                "uf": "RJ"
+            }
+        }
+
+    Exemplo 2
+
+        {
+            "nome": "Carlos Lima",
+            "telefone": "11987654321",
+            "email": "carlos.lima@example.com",
+            "endereco": {
+                "cep": "54321-987",
+                "logradouro": "Rua da Paz",
+                "complemento": "Bloco B, Apto 202",
+                "bairro": "Boa Vista",
+                "localidade": "Salvador",
+                "uf": "BA"
+            }
+        }
+
+    Exemplo 3
+
+        {
+            "nome": "Mariana Alves",
+            "telefone": "11912345678",
+            "email": "mariana.alves@example.com",
+            "endereco": {
+                "cep": "65432-198",
+                "logradouro": "Praça Central",
+                "complemento": "Edifício Aurora, Sala 101",
+                "bairro": "Centro",
+                "localidade": "Curitiba",
+                "uf": "PR"
+            }
+        }
+
+Atualizar Pessoa (PUT /people/update/:id)
+
+    Exemplo 1
+
+        {
+            "nome": "Ana Oliveira Atualizada",
+            "telefone": "987654322",
+            "email": "ana.atualizada@example.com",
+            "endereco": {
+                "cep": "98765-433",
+                "logradouro": "Avenida Brasil Norte",
+                "complemento": "Casa 25",
+                "bairro": "Jardim América",
+                "localidade": "Rio de Janeiro",
+                "uf": "RJ"
+            }
+        }
+
+    Exemplo 2
+
+        {
+            "nome": "Carlos Lima Atualizado",
+            "telefone": "11987654322",
+            "email": "carlos.atualizado@example.com",
+            "endereco": {
+                "cep": "54321-988",
+                "logradouro": "Rua da Harmonia",
+                "complemento": "Bloco C, Apto 302",
+                "bairro": "Boa Vista",
+                "localidade": "Salvador",
+                "uf": "BA"
+            }
+        }
+
+    Exemplo 3
+
+        {
+            "nome": "Mariana Alves Atualizada",
+            "telefone": "11912345679",
+            "email": "mariana.atualizada@example.com",
+            "endereco": {
+                "cep": "65432-199",
+                "logradouro": "Praça Central Sul",
+                "complemento": "Edifício Aurora, Sala 201",
+                "bairro": "Centro",
+                "localidade": "Curitiba",
+                "uf": "PR"
+            }
+        }
+
