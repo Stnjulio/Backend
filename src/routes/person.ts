@@ -1,13 +1,15 @@
-// src/routes/person.ts
 import { Router } from "express";
 import personController from "../controllers/person";
+import { authenticated } from "../middlewares/authenticated";
+
+
 
 const router = Router();
 
-router.post('/create', personController.create);
-router.get('/list', personController.list);
-router.get('/detail/:id', personController.detail);
-router.put('/update/:id', personController.update);
-router.delete('/delete/:id', personController.remove);
+router.post('/create', authenticated, personController.create);
+router.get('/list', authenticated, personController.list);
+router.get('/detail/:id', authenticated, personController.detail);
+router.put('/update/:id', authenticated, personController.update);
+router.delete('/delete/:id', authenticated, personController.remove);
 
-export { router as personRouter };  
+export { router as personRouter };

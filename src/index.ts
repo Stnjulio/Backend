@@ -1,12 +1,14 @@
 // src/index.ts
-import express from 'express';
 import sequelize from './config/db';
+import { authenticated } from './middlewares/authenticated';
 import { router } from './routes';
 
+import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(authenticated);
 
 app.use(router);
 

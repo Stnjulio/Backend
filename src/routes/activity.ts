@@ -1,14 +1,13 @@
-// src/routes/activity.ts
 import { Router } from "express";
 import activityController from "../controllers/activity";
+import { authenticated } from "../middlewares/authenticated";
 
 const router = Router();
 
-router.post('/create', activityController.create);
-router.get('/list', activityController.list);
-router.get('/detail/:id', activityController.detail);
-router.put('/update/:id', activityController.update);
-router.delete('/delete/:id', activityController.remove);
+router.post('/create', authenticated, activityController.create);
+router.get('/list', authenticated, activityController.list);
+router.get('/detail/:id', authenticated, activityController.detail);
+router.put('/update/:id', authenticated, activityController.update);
+router.delete('/delete/:id', authenticated, activityController.remove);
 
-export { router as activityRouter };  
-
+export { router as activityRouter };
