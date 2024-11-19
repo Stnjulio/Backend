@@ -20,7 +20,7 @@ const login = async (data: ILogin) => {
         throw new Error("Usuário ou senha incorretos");
     }
 
-    const accessToken = sign(user.toJSON(), backend.jwt_secret, { expiresIn: '10h' });
+    const accessToken = sign(user.toJSON(), backend.jwt_secret, { expiresIn: '24h' });
     const refreshToken = sign(user.toJSON(), backend.jwt_secret, { expiresIn: '7d' });
 
     return { message: "Login realizado com sucesso", accessToken, refreshToken }; 

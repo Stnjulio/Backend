@@ -1,3 +1,4 @@
+//migrations/create-sql-migration.js
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
