@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(router);
 
 // Usando o middleware de autenticação (caso necessário)
-router.use(authenticated);
+// router.use(authenticated);
 
 // Testando a conexão com o banco de dados
 sequelize

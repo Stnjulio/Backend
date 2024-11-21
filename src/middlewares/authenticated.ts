@@ -1,3 +1,4 @@
+//src/middlewares/authenticated.ts
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { ILogin } from "../interfaces/auth";

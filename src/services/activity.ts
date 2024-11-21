@@ -25,7 +25,7 @@ const create = async (data: IActivity) => {
 const list = async () => {
     const activities = await ActivityModel.findAll();
 
-    return { activities };
+    return activities ;
 };
 
 const detail = async (id: string) => {

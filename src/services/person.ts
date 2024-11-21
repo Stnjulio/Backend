@@ -21,7 +21,7 @@ const create = async (data: IPerson) => {
 
 const list = async () => {
     const people = await PersonModel.findAll();
-    return { message: "Lista de pessoas", people };
+    return people;
 };
 
 const detail = async (id: string) => {
